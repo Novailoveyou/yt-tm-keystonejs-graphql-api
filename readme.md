@@ -12,8 +12,41 @@ Year 2021
 
 ## CLI
 
-```zsh
+There is [graphiql tool](http://localhost:5000/admin/graphiql) to play and test queries with
 
+With graphql it's possible to get only parts of data
+
+```graphiql
+query {
+  allPosts {
+    id
+    title
+  }
+}
+```
+
+Get count
+
+```graphiql
+query {
+  _allPostsMeta{
+    count
+  }
+}
+```
+
+Can also mutate & create posts
+
+```graphiql
+mutation {
+  createPost(data: {
+    title: "Post Three",
+    body: "This is post three",
+    author: "Nover"
+  }){
+    id
+  }
+}
 ```
 
 ## Things I learned
