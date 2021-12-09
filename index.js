@@ -6,10 +6,14 @@ const { MongooseAdapter: Adapter } = require('@keystonejs/adapter-mongoose')
 const PROJECT_NAME = 'yt-tm-keystonejs-graphql-api'
 const adapterConfig = { mongoUri: process.env.MONGO_URI }
 
+const PostSchema = require('./lists/Post')
+
 const keystone = new Keystone({
   adapter: new Adapter(adapterConfig),
   cookieSecret: process.env.COOKIE_SECRET
 })
+
+keystone.createList('Post', PostSchema)
 
 module.exports = {
   keystone,
