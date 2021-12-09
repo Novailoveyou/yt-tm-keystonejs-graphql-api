@@ -1,12 +1,14 @@
+const dotenv = require('dotenv').config()
 const { Keystone } = require('@keystonejs/keystone')
 const { GraphQLApp } = require('@keystonejs/app-graphql')
 const { AdminUIApp } = require('@keystonejs/app-admin-ui')
 const { MongooseAdapter: Adapter } = require('@keystonejs/adapter-mongoose')
 const PROJECT_NAME = 'yt-tm-keystonejs-graphql-api'
-const adapterConfig = { mongoUri: process.env.MONGODB_URI }
+const adapterConfig = { mongoUri: process.env.MONGO_URI }
 
 const keystone = new Keystone({
-  adapter: new Adapter(adapterConfig)
+  adapter: new Adapter(adapterConfig),
+  cookieSecret: process.env.COOKIE_SECRET
 })
 
 module.exports = {
