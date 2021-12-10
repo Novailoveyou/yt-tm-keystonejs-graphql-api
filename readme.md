@@ -49,8 +49,6 @@ mutation {
 }
 ```
 
-## Things I learned
-
 ## KeystoneJS Starter Template default readme
 
 You've created a KeystoneJS project! This project contains a simple list of users and an admin application (`localhost:3000/admin`) with basic authentication.
