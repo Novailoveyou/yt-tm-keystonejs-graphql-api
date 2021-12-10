@@ -34,7 +34,10 @@ module.exports = {
     new AdminUIApp({
       name: PROJECT_NAME,
       enableDefaultRoute: true,
-      authStrategy
+      authStrategy,
+      isAccessAllowed: ({ authentication: { item: user } }) => {
+        return !!user && !!user.isAdmin
+      }
     })
   ]
 }
